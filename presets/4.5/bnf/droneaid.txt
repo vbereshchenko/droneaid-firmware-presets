@@ -17,7 +17,6 @@
 # start the command batch
 batch start
 
-
 #$ OPTION_GROUP BEGIN: Reset
     #$ OPTION BEGIN (CHECKED): Reset all to default before flashing preset (leave selected)
         defaults nosave
@@ -92,6 +91,210 @@ profile 0
     #$ OPTION END
 #$ OPTION_GROUP END
 
+#$ OPTION_GROUP BEGIN: VTX (select one)
+    #$ OPTION BEGIN (CHECKED): Rush Solo Max
+        # TBS Smart Audio Control Port
+        serial 0 2048 115200 57600 0 115200
+        serial 2 2048 115200 57600 0 115200 # moonshine fc related vtx serial port
+
+        vtxtable channels 8
+        vtxtable bands 6
+        vtxtable band 1 BAND_A   A CUSTOM  5865 5845 5825 5805 5785 5765 5745 5725
+        vtxtable band 2 BAND_B   B CUSTOM  5733 5752 5771 5790 5809 5828 5847 5866
+        vtxtable band 3 BAND_E   E CUSTOM  5705 5685 5665 5645 5885 5905 5925 5945
+        vtxtable band 4 FATSHARK F CUSTOM  5740 5760 5780 5800 5820 5840 5860 5880
+        vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
+        vtxtable band 6 LOWRACE  L CUSTOM  5362 5399 5436 5473 5510 5547 5584 5621
+
+        vtxtable powerlevels 4
+        vtxtable powervalues 14 27 30 34
+        vtxtable powerlabels 25 200 1W 2W5
+
+        # vtx
+        vtx 0 2 0 0 1 900 1100
+        vtx 1 2 0 0 2 1400 1600
+        vtx 2 2 0 0 4 1900 2100
+
+        # default frequency R8
+        set vtx_freq = 5917
+        set vtx_band = 5
+        set vtx_channel = 8
+     #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): Pilotix 3.3GHz 2.5W
+        # TBS Smart Audio Control Port
+        serial 0 2048 115200 57600 0 115200
+        serial 2 2048 115200 57600 0 115200 # moonshine fc related vtx serial port
+
+        vtxtable bands 2
+        vtxtable channels 7
+        vtxtable band 1 BAND_A A CUSTOM  3360 3380 3400 3420 3440 3460 3480
+        vtxtable band 2 BAND_B B CUSTOM  3200 3220 3240 3260 3280 3300 3320
+
+        vtxtable powerlevels 4
+        vtxtable powervalues 0 1 2 3
+        vtxtable powerlabels 25 400 1W 2W5
+
+        # vtx
+        vtx 0 2 0 0 1 900 1100
+        vtx 1 2 0 0 2 1400 1600
+        vtx 2 2 0 0 4 1900 2100
+
+        # default frequency A1
+        set vtx_freq = 3360
+        set vtx_band = 1
+        set vtx_channel = 1
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): Pilotix 5.8GHz 3W
+        # TBS Smart Audio Control Port
+        serial 0 2048 115200 57600 0 115200
+        serial 2 2048 115200 57600 0 115200 # moonshine fc related vtx serial port
+
+        vtxtable bands 6
+        vtxtable channels 8
+        vtxtable band 1 BAND_A   A CUSTOM  5865 5845 5825 5805 5785 5765 5745 5725
+        vtxtable band 2 BAND_B   B CUSTOM  5733 5752 5771 5790 5809 5828 5847 5866
+        vtxtable band 3 BAND_E   E CUSTOM  5705 5685 5665 5665 5885 5905 5925 5945
+        vtxtable band 4 FATSHARK F CUSTOM  5740 5760 5780 5800 5820 5840 5860 5880
+        vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
+        vtxtable band 6 LOWRACE  L CUSTOM  5362 5399 5436 5473 5510 5547 5584 5621
+
+        vtxtable powerlevels 5
+        vtxtable powervalues 0 1 2 3 4
+        vtxtable powerlabels 25 1.6W 2W 2W5 MAX
+
+        # vtx
+        vtx 0 2 0 0 1 900 1100
+        vtx 1 2 0 0 2 1400 1600
+        vtx 2 2 0 0 5 1900 2100
+
+        # default frequency R8
+        set vtx_freq = 5917
+        set vtx_band = 5
+        set vtx_channel = 8
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): Foxeer Reaper 2.5W
+        # IRC Tramp Control Port
+        serial 0 8192 115200 57600 0 115200
+        serial 2 8192 115200 57600 0 115200 # moonshine fc related vtx serial port
+
+        vtxtable bands 5
+        vtxtable channels 8
+        vtxtable band 1 BAND_A   A CUSTOM  5865 5845 5825 5805 5785 5765 5745 5725
+        vtxtable band 2 BAND_B   B CUSTOM  5733 5752 5771 5790 5809 5828 5847 5866
+        vtxtable band 3 BAND_E   E CUSTOM  5705 5685 5665 5645 5885 5905 5925 5945
+        vtxtable band 4 FATSHARK F CUSTOM  5740 5760 5780 5800 5820 5840 5860 5880
+        vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
+
+        vtxtable powerlevels 5
+        vtxtable powervalues 25 100 200 400 600
+        vtxtable powerlabels 25 200 500 1W5 2W5
+
+        # vtx
+        vtx 0 2 0 0 1 900 1100
+        vtx 1 2 0 0 2 1400 1600
+        vtx 2 2 0 0 5 1900 2100
+
+        # default frequency R8
+        set vtx_freq = 5917
+        set vtx_band = 5
+        set vtx_channel = 8
+    #$ OPTION END
+
+     #$ OPTION BEGIN (UNCHECKED): BLITZ 2.5W
+        # IRC Tramp Control Port
+        serial 0 8192 115200 57600 0 115200
+        serial 2 8192 115200 57600 0 115200 # moonshine fc related vtx serial port
+
+        vtxtable bands 5
+        vtxtable channels 8
+        vtxtable band 1 BAND_A   A CUSTOM  5865 5845 5825 5805 5785 5765 5745 5725
+        vtxtable band 2 BAND_B   B CUSTOM  5733 5752 5771 5790 5809 5828 5847 5866
+        vtxtable band 3 BAND_E   E CUSTOM  5705 5685 5665 5645 5885 5905 5925 5945
+        vtxtable band 4 AIRWAVE  F CUSTOM  5740 5760 5780 5800 5820 5840 5860 5880
+        vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
+
+        vtxtable powerlevels 4
+        vtxtable powervalues 25 400 1000 2500
+        vtxtable powerlabels 25 400 1W 2W5
+
+        # vtx
+        vtx 0 2 0 0 1 900 1100
+        vtx 1 2 0 0 2 1400 1600
+        vtx 2 2 0 0 4 1900 2100
+
+        # default frequency R8
+        set vtx_freq = 5917
+        set vtx_band = 5
+        set vtx_channel = 8
+    #$ OPTION END
+#$ OPTION_GROUP END
+
+#$ OPTION_GROUP BEGIN: VTX Protocol (select one)
+    #$ OPTION BEGIN (CHECKED): PAL
+        set vcd_video_system = PAL
+        set osd_vbat_pos = 2465
+        set osd_link_quality_pos = 2487
+        set osd_rssi_dbm_pos = 2519
+        set osd_tim_1_pos = 2423
+        set osd_tim_2_pos = 2455
+        set osd_flymode_pos = 2393
+        set osd_throttle_pos = 2433
+        set osd_vtx_channel_pos = 2548
+        set osd_crosshairs_pos = 2286
+        set osd_ah_sbar_pos = 239
+        set osd_ah_pos = 2159
+        set osd_current_pos = 2401
+        set osd_mah_drawn_pos = 2540
+        set osd_craft_name_pos = 2081
+        set osd_altitude_pos = 2102
+        set osd_warnings_pos = 14634
+        set osd_avg_cell_voltage_pos = 2497
+        set osd_battery_usage_pos = 33153
+        set osd_nvario_pos = 119
+        set osd_esc_tmp_pos = 481
+        set osd_core_temp_pos = 2529
+        set osd_log_status_pos = 2369
+        set osd_camera_frame_pos = 99
+        set osd_stat_bitmask = 14254
+        set osd_canvas_width = 30
+        set osd_canvas_height = 16
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): NTSC (select if OSD blinking or out of borders)
+        set vcd_video_system = NTSC
+        set osd_vbat_pos = 2305
+        set osd_link_quality_pos = 2391
+        set osd_rssi_dbm_pos = 2424
+        set osd_tim_1_pos = 2327
+        set osd_tim_2_pos = 2359
+        set osd_flymode_pos = 2297
+        set osd_throttle_pos = 2401
+        set osd_vtx_channel_pos = 2452
+        set osd_crosshairs_pos = 2253
+        set osd_ah_sbar_pos = 239
+        set osd_ah_pos = 2095
+        set osd_current_pos = 2368
+        set osd_mah_drawn_pos = 2444
+        set osd_craft_name_pos = 2081
+        set osd_altitude_pos = 2102
+        set osd_warnings_pos = 14473
+        set osd_avg_cell_voltage_pos = 2337
+        set osd_battery_usage_pos = 33153
+        set osd_nvario_pos = 119
+        set osd_esc_tmp_pos = 481
+        set osd_flip_arrow_pos = 2222
+        set osd_core_temp_pos = 2433
+        set osd_log_status_pos = 2273
+        set osd_camera_frame_pos = 99
+        set osd_stat_bitmask = 18890468
+        set osd_canvas_width = 30
+        set osd_canvas_height = 16
+    #$ OPTION END
+#$ OPTION_GROUP END
+
 #$ OPTION_GROUP BEGIN: Flight controller (select one)
     #$ OPTION BEGIN (CHECKED): SpeedyBee F405 V4
         manufacturer_id SPBE
@@ -103,6 +306,7 @@ profile 0
 
         # Ports (UARTS)
         serial 1 0 115200 57600 0 115200
+        serial 2 0 115200 57600 0 115200 # moonshine fc related vtx serial reset
         serial 5 64 115200 57600 0 115200
     #$ OPTION END
 
@@ -115,10 +319,11 @@ profile 0
 
         # Ports (UARTS)
         serial 1 0 115200 57600 0 115200
+        serial 2 0 115200 57600 0 115200 # moonshine fc related vtx serial reset
         serial 5 64 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): Moonshine HGLRCF405 V2 (Experimental) !BETA!
+    #$ OPTION BEGIN (UNCHECKED): Moonshine HGLRCF405 V2 (Experimental)
         manufacturer_id HGLRC
         mcu_id 0023004d3532510135343631
         signature
@@ -129,11 +334,11 @@ profile 0
         set gyro_1_align_yaw = 900
 
         # Ports (UARTS)
-        serial 0 2048 115200 57600 0 115200
+        serial 0 0 115200 57600 0 115200
         serial 1 64 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): PILOTIX DIY Kit (F405 V3 FC + 60A V1.0 ESC) !BETA!
+    #$ OPTION BEGIN (UNCHECKED): PILOTIX DIY Kit F405 V3 FC + 60A V1.0 ESC (Experimental)
         manufacturer_id PLTX
         mcu_id 003c001d3034510934353331
         signature
@@ -236,6 +441,7 @@ profile 0
         # Ports (UARTS)
         serial 0 2 115200 57600 0 115200
         serial 1 64 115200 57600 0 115200
+        serial 2 0 115200 57600 0 115200 # moonshine fc related vtx serial reset
         serial 3 8192 115200 57600 0 115200
         serial 4 1 115200 57600 0 115200
 
@@ -270,208 +476,6 @@ profile 0
         set gyro_1_align_yaw = 900
     #$ OPTION END
 #$ OPTION_GROUP END
-
-
-#$ OPTION_GROUP BEGIN: VTX (select one)
-    #$ OPTION BEGIN (CHECKED): Rush Solo Max
-        # TBS Smart Audio Control Port
-        serial 0 2048 115200 57600 0 115200
-
-        vtxtable channels 8
-        vtxtable bands 6
-        vtxtable band 1 BAND_A   A CUSTOM  5865 5845 5825 5805 5785 5765 5745 5725
-        vtxtable band 2 BAND_B   B CUSTOM  5733 5752 5771 5790 5809 5828 5847 5866
-        vtxtable band 3 BAND_E   E CUSTOM  5705 5685 5665 5645 5885 5905 5925 5945
-        vtxtable band 4 FATSHARK F CUSTOM  5740 5760 5780 5800 5820 5840 5860 5880
-        vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
-        vtxtable band 6 LOWRACE  L CUSTOM  5362 5399 5436 5473 5510 5547 5584 5621
-
-        vtxtable powerlevels 4
-        vtxtable powervalues 14 27 30 34
-        vtxtable powerlabels 25 200 1W 2W5
-
-        # vtx
-        vtx 0 2 0 0 1 900 1100
-        vtx 1 2 0 0 2 1400 1600
-        vtx 2 2 0 0 4 1900 2100
-
-        # default frequency R8
-        set vtx_freq = 5917
-        set vtx_band = 5
-        set vtx_channel = 8
-     #$ OPTION END
-
-    #$ OPTION BEGIN (UNCHECKED): Pilotix 3.3GHz 2.5W
-        # TBS Smart Audio Control Port
-        serial 0 2048 115200 57600 0 115200
-
-        vtxtable bands 2
-        vtxtable channels 7
-        vtxtable band 1 BAND_A A CUSTOM  3360 3380 3400 3420 3440 3460 3480
-        vtxtable band 2 BAND_B B CUSTOM  3200 3220 3240 3260 3280 3300 3320
-
-        vtxtable powerlevels 4
-        vtxtable powervalues 0 1 2 3
-        vtxtable powerlabels 25 400 1W 2W5
-
-        # vtx
-        vtx 0 2 0 0 1 900 1100
-        vtx 1 2 0 0 2 1400 1600
-        vtx 2 2 0 0 4 1900 2100
-
-        # default frequency A1
-        set vtx_freq = 3360
-        set vtx_band = 1
-        set vtx_channel = 1
-    #$ OPTION END
-
-    #$ OPTION BEGIN (UNCHECKED): Pilotix 5.8GHz 3W
-        # TBS Smart Audio Control Port
-        serial 0 2048 115200 57600 0 115200
-
-        vtxtable bands 6
-        vtxtable channels 8
-        vtxtable band 1 BAND_A   A CUSTOM  5865 5845 5825 5805 5785 5765 5745 5725
-        vtxtable band 2 BAND_B   B CUSTOM  5733 5752 5771 5790 5809 5828 5847 5866
-        vtxtable band 3 BAND_E   E CUSTOM  5705 5685 5665 5665 5885 5905 5925 5945
-        vtxtable band 4 FATSHARK F CUSTOM  5740 5760 5780 5800 5820 5840 5860 5880
-        vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
-        vtxtable band 6 LOWRACE  L CUSTOM  5362 5399 5436 5473 5510 5547 5584 5621
-
-        vtxtable powerlevels 5
-        vtxtable powervalues 0 1 2 3 4
-        vtxtable powerlabels 25 1.6W 2W 2W5 MAX
-
-        # vtx
-        vtx 0 2 0 0 1 900 1100
-        vtx 1 2 0 0 2 1400 1600
-        vtx 2 2 0 0 5 1900 2100
-
-        # default frequency R8
-        set vtx_freq = 5917
-        set vtx_band = 5
-        set vtx_channel = 8
-    #$ OPTION END
-
-    #$ OPTION BEGIN (UNCHECKED): Foxeer Reaper 2.5W
-        # IRC Tramp Control Port
-        serial 0 8192 115200 57600 0 115200
-
-        vtxtable bands 5
-        vtxtable channels 8
-        vtxtable band 1 BAND_A   A CUSTOM  5865 5845 5825 5805 5785 5765 5745 5725
-        vtxtable band 2 BAND_B   B CUSTOM  5733 5752 5771 5790 5809 5828 5847 5866
-        vtxtable band 3 BAND_E   E CUSTOM  5705 5685 5665 5645 5885 5905 5925 5945
-        vtxtable band 4 FATSHARK F CUSTOM  5740 5760 5780 5800 5820 5840 5860 5880
-        vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
-
-        vtxtable powerlevels 5
-        vtxtable powervalues 25 100 200 400 600
-        vtxtable powerlabels 25 200 500 1W5 2W5
-
-        # vtx
-        vtx 0 2 0 0 1 900 1100
-        vtx 1 2 0 0 2 1400 1600
-        vtx 2 2 0 0 5 1900 2100
-
-        # default frequency R8
-        set vtx_freq = 5917
-        set vtx_band = 5
-        set vtx_channel = 8
-    #$ OPTION END
-
-     #$ OPTION BEGIN (UNCHECKED): BLITZ 2.5W
-        # IRC Tramp Control Port
-        serial 0 8192 115200 57600 0 115200
-
-        vtxtable bands 5
-        vtxtable channels 8
-        vtxtable band 1 BAND_A   A CUSTOM  5865 5845 5825 5805 5785 5765 5745 5725
-        vtxtable band 2 BAND_B   B CUSTOM  5733 5752 5771 5790 5809 5828 5847 5866
-        vtxtable band 3 BAND_E   E CUSTOM  5705 5685 5665 5645 5885 5905 5925 5945
-        vtxtable band 4 AIRWAVE  F CUSTOM  5740 5760 5780 5800 5820 5840 5860 5880
-        vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
-
-        vtxtable powerlevels 4
-        vtxtable powervalues 25 400 1000 2500
-        vtxtable powerlabels 25 400 1W 2W5
-
-        # vtx
-        vtx 0 2 0 0 1 900 1100
-        vtx 1 2 0 0 2 1400 1600
-        vtx 2 2 0 0 4 1900 2100
-
-        # default frequency R8
-        set vtx_freq = 5917
-        set vtx_band = 5
-        set vtx_channel = 8
-    #$ OPTION END
-#$ OPTION_GROUP END
-
-
-#$ OPTION_GROUP BEGIN: VTX Protocol (select one)
-    #$ OPTION BEGIN (CHECKED): PAL
-        set vcd_video_system = PAL
-        set osd_vbat_pos = 2465
-        set osd_link_quality_pos = 2487
-        set osd_rssi_dbm_pos = 2519
-        set osd_tim_1_pos = 2423
-        set osd_tim_2_pos = 2455
-        set osd_flymode_pos = 2393
-        set osd_throttle_pos = 2433
-        set osd_vtx_channel_pos = 2548
-        set osd_crosshairs_pos = 2286
-        set osd_ah_sbar_pos = 239
-        set osd_ah_pos = 2159
-        set osd_current_pos = 2401
-        set osd_mah_drawn_pos = 2540
-        set osd_craft_name_pos = 2081
-        set osd_altitude_pos = 2102
-        set osd_warnings_pos = 14634
-        set osd_avg_cell_voltage_pos = 2497
-        set osd_battery_usage_pos = 33153
-        set osd_nvario_pos = 119
-        set osd_esc_tmp_pos = 481
-        set osd_core_temp_pos = 2529
-        set osd_log_status_pos = 2369
-        set osd_camera_frame_pos = 99
-        set osd_stat_bitmask = 14254
-        set osd_canvas_width = 30
-        set osd_canvas_height = 16
-    #$ OPTION END
-
-    #$ OPTION BEGIN (UNCHECKED): NTSC
-        set vcd_video_system = NTSC
-        set osd_vbat_pos = 2305
-        set osd_link_quality_pos = 2391
-        set osd_rssi_dbm_pos = 2424
-        set osd_tim_1_pos = 2327
-        set osd_tim_2_pos = 2359
-        set osd_flymode_pos = 2297
-        set osd_throttle_pos = 2401
-        set osd_vtx_channel_pos = 2452
-        set osd_crosshairs_pos = 2253
-        set osd_ah_sbar_pos = 239
-        set osd_ah_pos = 2095
-        set osd_current_pos = 2368
-        set osd_mah_drawn_pos = 2444
-        set osd_craft_name_pos = 2081
-        set osd_altitude_pos = 2102
-        set osd_warnings_pos = 14473
-        set osd_avg_cell_voltage_pos = 2337
-        set osd_battery_usage_pos = 33153
-        set osd_nvario_pos = 119
-        set osd_esc_tmp_pos = 481
-        set osd_flip_arrow_pos = 2222
-        set osd_core_temp_pos = 2433
-        set osd_log_status_pos = 2273
-        set osd_camera_frame_pos = 99
-        set osd_stat_bitmask = 18890468
-        set osd_canvas_width = 30
-        set osd_canvas_height = 16
-    #$ OPTION END
-#$ OPTION_GROUP END
-
 
 #$ OPTION_GROUP BEGIN: Other options (leave selected)
     #$ OPTION BEGIN (CHECKED): ELRS 50Hz
